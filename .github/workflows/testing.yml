@@ -11,15 +11,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - oscript_version: 'default'
-            test_engine: '1testrunner'
-          - oscript_version: 'lts-dev'
+          - oscript_version: ['default', 'lts-dev']
             test_engine: '1testrunner'
           - oscript_version: 'dev'
             test_engine: 'oneunit'
             additional_oscript_packages: extends
 
-    uses: autumn-library/workflows/.github/workflows/test.yml@oneunit
+    uses: autumn-library/workflows/.github/workflows/test.yml@main
     with:
       oscript_version: ${{ matrix.oscript_version }}
       test_engine: ${{ matrix.test_engine }}
