@@ -10,10 +10,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        oscript_version: ['default', 'lts-dev']
+        oscript_version: ['default', 'lts']
         test_engine: ['1testrunner']
         include:
           - oscript_version: 'dev'
+            test_engine: 'oneunit'
+            additional_oscript_packages: extends
+          - oscript_version: 'stable'
             test_engine: 'oneunit'
             additional_oscript_packages: extends
 
